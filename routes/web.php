@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+/*
 //Primera ruta: mensaje
 
 Route::get('hola', function(){ 
@@ -26,8 +26,65 @@ Route::get('hola', function(){
  });
 
 //Ruta tratar arreglos
-Route::get('arreglo' , function(){  });
+Route::get('arreglo' , function(){});
+*/
 
+//ruta arreglos multivariados o multifucional
+Route::get("arreglosm", function(){
+    
+    $paises = [ "Colombia" => [
+                        "Capital" => "Bogotá",
+                        "Moneda" => "Peso",
+                        "Población" => 50,
+                        "Ciudades" =>["Cali", "Medellin", "Cartagena"]
+                              ],
+                "Peru" => [
+                    "Capital" => "Lima",
+                    "Moneda" => "Soles",
+                    "Población" => 32,
+                    "Ciudades" =>["Arequipa", "Lima", "Piura"],
+                ],
+                "Bolivia" => [
+                    "Capital" => "La paz",
+                    "Moneda" => "Peso Boliviano",
+                    "Población" => 12,
+                    "Ciudades" =>["Santa cruz", "La paz", "Tarija" ]
+                ],
+                 ];
+
+        //mostrar la vista
+        //A la vista se puede adjuntar datos
+
+        return view('paises')
+                    ->with('paises', $paises);
+
+});
+ 
+
+/*
+    echo "<pre>";
+    var_dump($paises);
+    echo "</pre>";
+*/
+
+
+
+//Recorrer el arreglo de paises
+/*
+foreach($paises as $pais => $informacion){
+    echo "<h1> $pais: </h1> ";
+foreach($informacion as $clave => $valor){
+    echo "$clave </br>: $valor";
+}
+
+    echo "<h1/>";
+}
+
+});*/
+
+ 
+
+/*
 
  //Crear arreglo:
 
@@ -60,6 +117,7 @@ $estudiantes ["L"]= "Leandro";
 */
 //Imprimir el arreglo 
 
+/*
 $estudiantes[] = "Fabio"; 
 
 foreach($estudiantes as $clave => $estudiantes){
@@ -71,3 +129,4 @@ foreach($estudiantes as $clave => $estudiantes){
 
 //Porfavor no utilizar echo para imprimir arrelgos
 
+*/
