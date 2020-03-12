@@ -1,5 +1,7 @@
 <?php
 
+use App\Producto;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,36 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("pruebaprod", function(){
+
+    //insertar produto:
+    $p = new producto();
+    //Crear atributos
+    $p->nombre = $_POST["nombre"];
+    $p->valor_unitario = $_POST["valor"];
+    //guardar en la base de datos
+    $p->save();    
+    echo "producto registrado";
+
+});
+
+Route::get('nuevoproducto', function(){
+    //Mostrar el dormulario de guardar producto
+    return view('productos.crear');
+});
+
+Route::post('guardarproducto', function(){
+        //insertar produto:
+        $p = new producto();
+        //Crear atributos
+        $p->nombre = $_POST["nombre"];
+        $p->valor_unitario = $_POST["valor"];
+        //guardar en la base de datos
+        $p->save();    
+        echo "producto registrado";
+});
+
 
 /*
 //Primera ruta: mensaje
